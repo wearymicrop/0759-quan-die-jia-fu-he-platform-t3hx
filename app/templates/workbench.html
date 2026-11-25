@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/static/ledger.css">
+  <link rel="stylesheet" href="/static/matrix.css">
+</head>
+<body>
+  <aside class="sidebar"><div class="brand"><span aria-hidden="true">券</span><strong>{{ title }}</strong></div>
+    <nav aria-label="复核模块">
+      <a href="#optimizer" data-panel="optimizer">优惠求解</a><a href="#receipts" data-panel="receipts">小票采信</a>
+      <a href="#versions" data-panel="versions">券规则版本</a><a href="#eligibility" data-panel="eligibility">叠用资格</a>
+      <a href="#refunds" data-panel="refunds">退单冲回</a><a href="#reconcile" data-panel="reconcile">金额对账</a>
+      <a href="#trace" data-panel="trace">追溯联单</a>
+    </nav>
+    <p class="shop-label">人民币 · 销售本地日</p>
+  </aside>
+  <main>
+    <header class="toolbar"><h1 id="section-title">优惠求解</h1><div class="batch"><label for="sample">复核批次</label><select id="sample"><option value="dirty">含差异流水</option><option value="clean">正常交易</option></select><button id="archive" class="accent">保存联单</button></div></header>
+    {% include 'review.html' %}
+    {% include 'upload.html' %}
+    <footer><span id="feedback" role="status">读取交易中</span><span id="snapshot">样例预览</span></footer>
+  </main>
+  <script type="module" src="/static/review.js"></script>
+</body>
+</html>
